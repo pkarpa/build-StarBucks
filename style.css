@@ -65,6 +65,7 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  overflow-x: hidden;
 }
 
 h1, h2, h3, h4, h5, h6, .banner .banner-description {
@@ -223,6 +224,7 @@ header > .container {
   gap: 94px;
 }
 header .btn-burger {
+  padding: 10px 24px;
   margin-left: auto;
 }
 
@@ -283,6 +285,7 @@ header .btn-burger {
   max-width: 574px;
 }
 .banner h1 {
+  font-size: min(6vw, 80px);
   font-weight: 800;
   margin-bottom: 54px;
   position: relative;
@@ -309,6 +312,7 @@ header .btn-burger {
 }
 .banner-btn-group {
   display: flex;
+  flex-wrap: wrap;
   gap: 16px;
   margin-bottom: 54px;
   position: relative;
@@ -385,18 +389,21 @@ header .btn-burger {
   z-index: -3;
 }
 .banner-discount {
+  --size: 14.154vw;
+  --max-size: 184px;
   position: absolute;
   top: -15px;
   right: 38px;
-  width: 184px;
-  height: 184px;
+  width: var(--size);
+  height: var(--size);
+  max-width: var(--max-size);
+  max-height: var(--max-size);
   display: flex;
-  background: url("./assets/img/bg-discount.svg") center no-repeat;
+  background: url("./assets/img/bg-discount.svg") center/100% no-repeat;
   justify-content: center;
   align-items: center;
   text-align: center;
   border-radius: 50%;
-  font-size: 54px;
   font-weight: 500;
 }
 .banner-discount::before {
@@ -410,6 +417,18 @@ header .btn-burger {
   border-radius: 50%;
   z-index: -1;
   box-shadow: -4.56px 15.52px 26.48px rgba(20, 62, 40, 0.4784313725);
+}
+.banner-discount__number {
+  font-size: min(4.231vw, 55px);
+  transform: rotate(-12deg);
+}
+.banner-line {
+  width: 1078px;
+  height: 677px;
+  position: absolute;
+  top: 188px;
+  right: -470px;
+  z-index: -3;
 }
 
 .footer {
@@ -530,17 +549,17 @@ header .btn-burger {
   height: 260px;
 }
 
-@media (min-width: 1025px) {
+@media screen and (min-width: 1025px) {
   .btn-burger {
     display: none;
   }
 }
-@media screen and (max-width: 1199px) {
+@media screen and (max-width: 1199.99px) {
   .footer-nav {
     max-width: 650px;
   }
 }
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 1024.99px) {
   header {
     padding: 38px 0;
   }
@@ -552,7 +571,7 @@ header .btn-burger {
     position: absolute;
     left: 0;
     top: 0;
-    height: 98px;
+    height: 92px;
     width: 100%;
     background-color: #121517;
     z-index: 1;
@@ -563,6 +582,54 @@ header .btn-burger {
   }
   .container {
     padding: 0 25px;
+  }
+  .banner .container {
+    flex-direction: column-reverse;
+    align-items: center;
+  }
+  .banner h1 {
+    font-size: min(12vw, 48px);
+    margin-bottom: 36px;
+  }
+  .banner .banner-description {
+    font-size: 0.75rem;
+    margin-bottom: 36px;
+  }
+  .banner-btn-group {
+    gap: 10px;
+    margin-bottom: 36px;
+  }
+  .banner-img {
+    padding: 0 96px;
+    margin-right: initial;
+  }
+  .banner-img::before {
+    display: none;
+  }
+  .banner-img::after {
+    display: none;
+  }
+  .banner-discount {
+    top: 0;
+    right: 110px;
+  }
+  .banner-line {
+    width: 100%;
+    height: auto;
+    top: 45px;
+    right: -20px;
+  }
+  .banner .banner-statistics {
+    gap: 44px;
+  }
+  .banner .banner-statistic-item {
+    width: auto;
+  }
+  .banner .banner-statistic__title {
+    font-size: 42px;
+  }
+  .banner .banner-statistic__description {
+    font-size: 12px;
   }
   .menu__list {
     flex-direction: column;
@@ -585,6 +652,10 @@ header .btn-burger {
     top: 98px;
     transform: translate(0, 0);
     visibility: visible;
+  }
+  .btn {
+    font-size: 16px;
+    padding: 17px 24px;
   }
   .btn.btn-outline {
     width: 52px;

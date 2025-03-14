@@ -387,6 +387,10 @@ section {
   max-width: 456px;
   width: 100%;
 }
+.we-make .accent-label-sm {
+  top: 10px;
+  right: 20px;
+}
 
 .we-make__line {
   position: absolute;

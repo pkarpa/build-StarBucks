@@ -151,6 +151,30 @@ section {
   overflow: hidden;
 }
 
+.g-0 {
+  gap: 0;
+}
+
+.g-1 {
+  gap: 1rem;
+}
+
+.g-2 {
+  gap: 2rem;
+}
+
+.g-3 {
+  gap: 3rem;
+}
+
+.g-4 {
+  gap: 4rem;
+}
+
+.g-5 {
+  gap: 5rem;
+}
+
 ::selection {
   color: #121517;
   background-color: #237249;
@@ -241,6 +265,16 @@ section {
 }
 .btn.btn-secondary::after {
   background-image: url("./assets/img/btn-hover-secondary.svg");
+}
+.btn.btn-close {
+  border: 1px solid #fff;
+  border-radius: 20px;
+  padding: 5px 10px;
+  background-color: #121517;
+}
+.btn.btn-close:hover {
+  color: #ff0000;
+  border-color: #ff0000;
 }
 
 .accent-label, .accent-label-sm {
@@ -484,20 +518,30 @@ section {
 }
 .modal .btn {
   font-size: 16px;
-  padding: 5px 7px;
+  padding: 5px 10px;
 }
 
 header {
   position: relative;
   padding: 48px 0;
+  --gap: 94px;
 }
 header > .container {
   display: flex;
   align-items: center;
-  gap: 94px;
+  gap: var(--gap);
 }
 header .btn-burger {
   padding: 10px 24px;
+  margin-left: auto;
+}
+header .mobile-container {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  gap: var(--gap);
+}
+header .mobile-container .btn {
   margin-left: auto;
 }
 
@@ -813,14 +857,17 @@ header .btn-burger {
     height: 92px;
     width: 100%;
     background-color: #121517;
-    z-index: 1;
+    z-index: 3;
+  }
+  header .btn-burger {
+    z-index: 3;
   }
   section {
     margin-bottom: 64px;
   }
   .header-logo {
     max-width: 114px;
-    z-index: 1;
+    z-index: 3;
   }
   .container {
     padding: 0 25px;
@@ -874,8 +921,8 @@ header .btn-burger {
     font-size: 12px;
   }
   .banner .accent-label, .banner .accent-label-sm {
-    top: 0;
-    right: 110px;
+    top: 6px;
+    right: 105px;
   }
   .accent-label-sm {
     font-size: 24px;
@@ -921,6 +968,8 @@ header .btn-burger {
     gap: 48px;
   }
   .mobile-container {
+    --gap: 72px;
+    flex-direction: column;
     position: absolute;
     left: 0;
     top: 0px;
@@ -932,11 +981,15 @@ header .btn-burger {
     transition: 0.5s;
     visibility: hidden;
     transform: translate(0, -100%);
+    z-index: 2;
   }
   .mobile-container.show {
-    top: 98px;
+    top: 92px;
     transform: translate(0, 0);
     visibility: visible;
+  }
+  .mobile-container .btn-secondary {
+    margin: 0 auto;
   }
   .btn {
     font-size: 16px;

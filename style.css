@@ -521,7 +521,7 @@ section {
 .products-title-wrapper {
   display: flex;
   align-items: center;
-  margin-bottom: 47px;
+  margin-bottom: 56px;
 }
 .products-title-wrapper .template-title {
   max-width: 392px;
@@ -534,6 +534,35 @@ section {
 
 .swiper-slide-active .product {
   border: 1px solid #35C66B;
+}
+
+.carousel-wrapper {
+  position: relative;
+}
+.carousel-wrapper .swiper {
+  max-width: 1252px;
+  margin: 0 auto;
+}
+
+.swiper-navigation {
+  height: 0;
+  width: 100%;
+  max-width: 1492px;
+  display: flex;
+  justify-content: space-between;
+  z-index: 1;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+.swiper-navigation .swiper-button-prev,
+.swiper-navigation .swiper-button-next {
+  position: static;
+  transform: rotate(90deg);
+}
+.swiper-navigation .swiper-button-prev {
+  transform: rotate(-90deg);
 }
 
 .product {
@@ -973,6 +1002,22 @@ header .mobile-container .btn {
     display: none;
   }
 }
+@media screen and (max-width: 1560.99px) {
+  .carousel-wrapper .swiper {
+    max-width: 929px;
+  }
+  .swiper-navigation {
+    max-width: 1168px;
+  }
+}
+@media screen and (max-width: 1233.99px) {
+  .carousel-wrapper .swiper {
+    max-width: 579px;
+  }
+  .swiper-navigation {
+    max-width: 842px;
+  }
+}
 @media screen and (max-width: 1199.99px) {
   .advantages-row .accent-label-sm {
     top: -60px;
@@ -1241,6 +1286,41 @@ header .mobile-container .btn {
     width: 35px;
     height: 35px;
   }
+  .products-title-wrapper {
+    flex-direction: column;
+  }
+  .products-title-wrapper .template-title {
+    margin-right: 0;
+    margin-bottom: 36px;
+  }
+  .product-title {
+    font-size: 22px;
+  }
+  .product-description {
+    font-size: 14px;
+  }
+  .product-price {
+    font-size: 22px;
+  }
+  .product-volume {
+    font-size: 14px;
+  }
+  .product .btn {
+    font-size: 12px;
+    padding: 10px 22px;
+  }
+  .product-img {
+    --size: 120px;
+  }
+  .product-img img {
+    height: 160px;
+  }
+  .carousel-wrapper .swiper {
+    max-width: 392px;
+  }
+  .swiper-navigation {
+    max-width: 544px;
+  }
 }
 @media screen and (max-width: 767.99px) {
   .banner .banner-line {
@@ -1256,6 +1336,12 @@ header .mobile-container .btn {
   }
   .modal .modal-content h5 {
     font-size: 14px;
+  }
+  .carousel-wrapper .swiper {
+    max-width: 184px;
+  }
+  .swiper-navigation {
+    max-width: 336px;
   }
 }
 @media screen and (max-width: 575.99px) {

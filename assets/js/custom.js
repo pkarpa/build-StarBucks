@@ -110,7 +110,7 @@
   });
   
 // Swiper
-const swiper = new Swiper('.swiper', {
+const swiperProduct = new Swiper('.swiper-product', {
   slidesPerView: 1,
   loop: true,
   spaceBetween: 24,
@@ -141,3 +141,81 @@ const swiper = new Swiper('.swiper', {
       }
   }
 });
+
+// var init = false;
+// var swiperEvents;
+// function swiperCard() {
+//   if (window.innerWidth <= 768) {
+//     if (!init) {
+//       init = true;
+//       swiperEvents = new Swiper(".swiper-events", {
+//         direction: "horizontal",
+//         slidesPerView: "auto",
+//         centeredSlides: true,
+//         spaceBetween: 32,
+//         // pagination: {
+//         //   el: ".swiper-pagination",
+//         //   clickable: true,
+//         // },
+//       });
+//     }
+//   } else if (init) {
+//     swiperEvents.destroy();
+//     init = false;
+//   }
+// }
+// swiperCard();
+// window.addEventListener("resize", swiperCard);
+
+//mobile only swiper
+
+let eventSwiper;
+let swiperEventsMediaQuery = window.matchMedia("(max-width: 1025px)");
+
+function checkedBreakpoint(swiperEventsMediaQuery){
+  if(swiperEventsMediaQuery.matches){
+    if(!eventSwiper){
+      eventSwiper = new Swiper(".swiper-events", {
+        loop: true,
+        spaceBetween: 24,
+        navigation: {
+          nextEl: ".swiper-event-button-next",
+          prevEl: ".swiper-event-button-prev",
+        },
+      });
+    }
+    else{
+      if(eventSwiper){
+        eventSwiper.destroy(true,true);
+        eventSwiper=null;
+      }
+    }
+  }
+}
+
+checkedBreakpoint(swiperEventsMediaQuery);
+
+swiperEventsMediaQuery.addEventListener("change",checkedBreakpoint);
+
+
+// let eventsSwiper = new Swiper(".swiper-events", {
+//   loop: true,
+//   spaceBetween: 24,
+//   navigation: {
+//     nextEl: ".swiper-event-button-next",
+//     prevEl: "swiper-event-button-prev",
+//   },
+// });
+
+// let swiperEventsMediaQuery = window.matchMedia("(max-width: 1025px)");
+// function checkedBrakpoint(swiperEventsMediaQuery){
+//   if(swiperEventsMediaQuery.matches){
+//     return;
+//   }
+//   else{
+//     eventsSwiper.destroy();
+//   }
+// }
+
+// checkedBrakpoint(swiperEventsMediaQuery);
+// window.addEventListener("change", checkedBrakpoint(swiperEventsMediaQuery));
